@@ -1,5 +1,5 @@
 // DOM elements
-const guideList = document.querySelector('.workouts');
+const workoutsList = document.querySelector('.workouts');
 const loggedOutLinks = document.querySelectorAll('.logged-out');
 const loggedInLinks = document.querySelectorAll('.logged-in');
 const accountDetails = document.querySelector('.account-details');
@@ -32,24 +32,24 @@ const setupUI = (user) => {
   }
 };
 
-// setup guides
-const setupGuides = (data) => {
+// setup workouts
+const setupWorkouts = (data) => {
 
   if (data.length) {
     let html = '';
     data.forEach(doc => {
-      const guide = doc.data();
+      const workouts = doc.data();
       const li = `
         <li>
-          <div class="collapsible-header grey lighten-4"> ${guide.title} </div>
-          <div class="collapsible-body white"> ${guide.content} </div>
+          <div class="collapsible-header grey lighten-4"> ${workouts.title} </div>
+          <div class="collapsible-body white"> ${workouts.color} </div>
         </li>
       `;
       html += li;
     });
-    guideList.innerHTML = html
+    workoutsList.innerHTML = html
   } else {
-    guideList.innerHTML = '<h5 class="center-align">Login to view workouts</h5>';
+    workoutsList.innerHTML = '<h5 class="center-align">Login to view workouts</h5>';
   }
   
 

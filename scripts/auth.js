@@ -19,21 +19,43 @@ auth.onAuthStateChanged(user => {
       setupUI(user);
     });
     db.collection('workouts').onSnapshot(snapshot => {
-      setupGuides(snapshot.docs);
+      setupWorkouts(snapshot.docs);
     }, err => console.log(err.message));
   } else {
     setupUI();
-    setupGuides([]);
+    setupWorkouts([]);
   }
 });
 
-// create new guide
+// create new workout
 const createForm = document.querySelector('#create-form');
 createForm.addEventListener('submit', (e) => {
   e.preventDefault();
   db.collection('workouts').add({
     title: createForm.title.value,
-    content: createForm.content.value
+    color: createForm.color.value,
+    data:{
+      data1: createForm.workouta.value,
+      data2: createForm.workoutb.value,
+      data3: createForm.workoutc.value,
+      data4: createForm.workoutd.value,
+      data5: createForm.workoute.value,
+      data6: createForm.workoutf.value ,
+      data7: createForm.workoutg.value,
+      data8: createForm.workouth.value,
+      data9:  createForm.workouti.value ,
+      data10: createForm.workoutj.value,
+      data11: createForm.workoutk.value,
+      data12: createForm.workoutl.value ,
+      data13: createForm.workoutm.value ,
+      data14: createForm.workoutn.value,
+      data15: createForm.workouto.value,
+      data16: createForm.workoutp.value,
+      data17: createForm.workoutq.value,
+      data18: createForm.workoutr.value,
+      data19: createForm.workouts.value,
+      data20: createForm.workoutt.value ,
+    }
   }).then(() => {
     // close the create modal & reset form
     const modal = document.querySelector('#modal-create');
