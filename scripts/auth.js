@@ -31,30 +31,32 @@ auth.onAuthStateChanged(user => {
 const createForm = document.querySelector('#create-form');
 createForm.addEventListener('submit', (e) => {
   e.preventDefault();
+
+  
   db.collection('workouts').add({
     title: createForm.title.value,
     color: createForm.color.value,
     data:{
-      data1: createForm.workouta.value,
-      data2: createForm.workoutb.value,
-      data3: createForm.workoutc.value,
-      data4: createForm.workoutd.value,
-      data5: createForm.workoute.value,
-      data6: createForm.workoutf.value ,
-      data7: createForm.workoutg.value,
-      data8: createForm.workouth.value,
-      data9:  createForm.workouti.value ,
-      data10: createForm.workoutj.value,
-      data11: createForm.workoutk.value,
-      data12: createForm.workoutl.value ,
-      data13: createForm.workoutm.value ,
-      data14: createForm.workoutn.value,
-      data15: createForm.workouto.value,
-      data16: createForm.workoutp.value,
-      data17: createForm.workoutq.value,
-      data18: createForm.workoutr.value,
-      data19: createForm.workouts.value,
-      data20: createForm.workoutt.value ,
+      data1: createForm.workouta.value!=""?createForm.workouta.value:null,
+      data2: createForm.workoutb.value!=""?createForm.workoutb.value:null,
+      data3: createForm.workoutc.value!=""?createForm.workoutc.value:null,
+      data4: createForm.workoutd.value!=""?createForm.workoutd.value:null,
+      data5: createForm.workoute.value!=""?createForm.workoute.value:null,
+      data6: createForm.workoutf.value !=""?createForm.workoutf.value:null,
+      data7: createForm.workoutg.value!=""?createForm.workoutg.value:null,
+      data8: createForm.workouth.value!=""?createForm.workouth.value:null,
+      data9:  createForm.workouti.value!="" ?createForm.workouti.value:null,
+      data10: createForm.workoutj.value!=""?createForm.workoutj.value:null,
+      data11: createForm.workoutk.value!=""?createForm.workoutk.value:null,
+      data12: createForm.workoutl.value !=""?createForm.workoutl.value:null,
+      data13: createForm.workoutm.value!="" ?createForm.workoutm.value:null,
+      data14: createForm.workoutn.value!=""?createForm.workoutn.value:null,
+      data15: createForm.workouto.value!=""?createForm.workouto.value:null,
+      data16: createForm.workoutp.value!=""?createForm.workoutp.value:null,
+      data17: createForm.workoutq.value!=""?createForm.workoutq.value:null,
+      data18: createForm.workoutr.value!=""?createForm.workoutr.value:null,
+      data19: createForm.workouts.value!=""?createForm.workouts.value:null,
+      data20: createForm.workoutt.value !=""?createForm.workoutt.value:null,
     }
   }).then(() => {
     // close the create modal & reset form
