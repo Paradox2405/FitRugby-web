@@ -41,19 +41,33 @@ const setupWorkouts = (data) => {
       const workouts = doc.data();
       const li = `
         <li>
-          <div class="collapsible-header grey lighten-4"> ${workouts.title} </div>
+          <div class="collapsible-header grey lighten-4"> ${workouts.title} 
+          <button class="btn waves-effect red accent-4" style="margin-left: auto;margin-right: 0;"  name="action" onclick="deleteFunction('${workouts.title}')">Delete
+        </button></div>
           <div class="collapsible-body white"> ${workouts.color} </div>
+          
         </li>
       `;
       html += li;
     });
     workoutsList.innerHTML = html
+    
   } else {
     workoutsList.innerHTML = '<h5 class="center-align">Login to view workouts</h5>';
   }
   
-
 };
+
+function deleteFunction(param){
+  //TODO: delete query
+  var jobskill_query = db.collection('workouts').where('title','==',param);
+jobskill_query.get().then(function(querySnapshot) {
+  querySnapshot.forEach(function(doc) {
+    doc.ref.delete();
+  });
+});
+  window.alert("Delete? "+param);
+}
 
 // setup materialize components
 document.addEventListener('DOMContentLoaded', function() {
